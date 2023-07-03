@@ -1,0 +1,6 @@
+# Copyright 2021 The Chromium OS Authors
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_DIRECTDRIVETECH_A2_Leg_F103CBT6
+	bool "DirectDriveTech A2 Leg F103CBT6"
+	depends on SOC_STM32F103CXT6

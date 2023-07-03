@@ -1,0 +1,18 @@
+identifier: A2_Leg_F103CBT6
+name: DirectDriveTech A2 Leg
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 20
+flash: 128
+supported:
+  - dma
+  - gpio
+  - uart
+  - can
+  - watchdog
+  - pwm
+  - spi

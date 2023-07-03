@@ -1,0 +1,9 @@
+# Copyright 2021 The Chromium OS Authors
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_DIRECTDRIVETECH_A2_Leg_F103CBT6
+
+config BOARD
+	default "A2_Leg_F103CBT6"
+
+endif # BOARD_DIRECTDRIVETECH_A2_Leg_F103CBT6
