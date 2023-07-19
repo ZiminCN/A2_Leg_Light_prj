@@ -15,4 +15,8 @@
 #ifndef __MAIN_HPP
 #define __MAIN_HPP
 
+#include "usart_func.hpp"
+#include "spi2control.hpp"
+#include "gpio_func.hpp"
+
 #endif //__MAIN_HPP

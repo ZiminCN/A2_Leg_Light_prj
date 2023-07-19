@@ -22,13 +22,16 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(A2_Light_Leg_cbt6_prj)
 
 include_directories("${CMAKE_CURRENT_LIST_DIR}/BSP/Inc" 
+                    "${CMAKE_CURRENT_LIST_DIR}/Core/SPI2Control/Inc" 
+                    "${CMAKE_CURRENT_LIST_DIR}/Core/CAN2Control/Inc" 
+                    "${CMAKE_CURRENT_LIST_DIR}/Core/UART2Control/Inc" 
                     "${CMAKE_CURRENT_LIST_DIR}/User/Inc")
 
 file(GLOB APP_SOURCE BSP/Src/*.c BSP/Src/*.cpp 
-                     Core/Uart2Control/Src/*.c Core/Uart2Control/Src/*.cpp 
-                     Core/LightControl/Src/*.c Core/LightControl/Src/*.cpp 
-                     Core/SPI2Control/Src/*.cpp Core/FiniteStateMachine/Src/*.cpp 
-                     User/Src/*.c User/Src/*.cpp)
+                    Core/SPI2Control/Src/*.c Core/SPI2Control/Src/*.cpp
+                    Core/UART2Control/Src/*.c Core/UART2Control/Src/*.cpp
+                    Core/CAN2Control/Src/*.c Core/CAN2Control/Src/*.cpp
+                    User/Src/*.c User/Src/*.cpp)
 
 target_compile_definitions(app PRIVATE _GNU_SOURCE=1 DIABLO_Leg_ZEPHYR=1)
 

@@ -19,34 +19,24 @@
 		zephyr,flash = &flash0;
 	};
 
+	rtt0: rtt_chan0 {
+		compatible = "segger,rtt-uart";
+		status = "okay";
+	};
+
     leds {
 		compatible = "gpio-leds";
 		board_led_a: led_red{
-			gpios = <&gpiob 5 GPIO_ACTIVE_LOW>;
-			label = "LED-RED";
+			gpios = <&gpiob 6 GPIO_ACTIVE_LOW>;
+			label = "LED-A";
 		};
 		board_led_b: led_green{
-			gpios = <&gpiob 6 GPIO_ACTIVE_LOW>;
-			label = "LED-GREEN";
+			gpios = <&gpiob 7 GPIO_ACTIVE_LOW>;
+			label = "LED-B";
 		};
 		board_led_c: led_blue{
-			gpios = <&gpiob 7 GPIO_ACTIVE_LOW>;
-			label = "LED-BLUE";
-		};
-	};
-
-	ledspwm {
-		compatible = "pwm-leds";
-		status = "okay";
-
-		time3_pwm2_pb5: time3_ch2 {
-			pwms = <&time3pwm 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
-		};
-		time4_pwm1_pb6: time4_ch1 {
-			pwms = <&time4pwm1 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
-		};
-		time4_pwm2_pb7: time4_ch2 {
-			pwms = <&time4pwm2 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			gpios = <&gpiob 8 GPIO_ACTIVE_LOW>;
+			label = "LED-C";
 		};
 	};
 
@@ -55,9 +45,6 @@
         boardledb = &board_led_b;
         boardledc = &board_led_c;
 		watchdog0 = &iwdg;
-		pwmpb5 = &time3_pwm2_pb5;
-		pwmpb6 = &time4_pwm1_pb6;
-		pwmpb7 = &time4_pwm2_pb7;
     };
 };
 
@@ -68,6 +55,8 @@
 
 &pll {
     mul = <9>;
+	clocks = <&clk_hse>;
+	status = "okay";
 };
 
 &rcc {
@@ -109,12 +98,10 @@
 
 	time3pwm: pwm {
 		status = "okay";
-		pinctrl-0 = <&tim3_ch2_remap1_pwm_out_pb5>;
+		pinctrl-0 = <&tim3_ch2_pwm_out_pa7>;
 		pinctrl-names = "default";
 	};
 };
-
-
 
 &timers4 {
 	st,prescaler = <10000>;

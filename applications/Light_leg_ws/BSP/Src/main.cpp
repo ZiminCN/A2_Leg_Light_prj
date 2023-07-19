@@ -18,6 +18,29 @@
 
 int main(void)
 {	
+	// HikariSPIControler *hikarispicontroler;
+	HikariGPIOConfig *def;
+
+	def->board_led_init();
+	while (1)
+	{
+		/* code */
+		def->test_led();
+
+	}
+	
+    // uint8_t test_array[] = {
+    //     //seems is start frame
+
+    // };
+	// while (1)
+	// {
+	// 	/* code */
+	// 	printk("**Now test SPI func!** \r\n");
+	// 	hikarispicontroler->nomal_test_spi_write(test_array);
+	// 	// k_msleep(50);
+	// }
+	
 
 	return 0;
 }
