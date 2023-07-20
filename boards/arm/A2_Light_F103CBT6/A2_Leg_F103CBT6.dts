@@ -105,7 +105,7 @@
 };
 
 &can1 {
-	pinctrl-0 = <&analog_pa11 &analog_pa12>;
+	pinctrl-0 = <&can_rx_pa11 &can_tx_pa12>;
 	pinctrl-names = "default";
 	bus-speed = <1000000>;
 	sjw = <1>;
@@ -121,7 +121,7 @@
 
 	time2pwm4: pwm {
 		status = "okay";
-		pinctrl-0 = <&tim2_ch4_pwm_out_pa3>;
+		pinctrl-0 = <&tim2_ch4_pwm_pa3>;
 		pinctrl-names = "default";
 	};
 };
@@ -132,7 +132,7 @@
 
 	time3pwm2: pwm {
 		status = "okay";
-		pinctrl-0 = <&tim3_ch2_pwm_in_pa7>;
+		pinctrl-0 = <&tim3_ch2_pwm_pa7>;
 		pinctrl-names = "default";
 	};
 };
@@ -143,12 +143,12 @@
 
 	time4pwm1: pwm {
 		status = "okay";
-		pinctrl-0 = <&tim4_ch1_pwm_out_pb6>;
+		pinctrl-0 = <&tim4_ch1_pwm_pb6>;
 		pinctrl-names = "default";
 	};
 	time4pwm2: pwm {
 		status = "okay";
-		pinctrl-0 = <&tim4_ch2_pwm_out_pb7>;
+		pinctrl-0 = <&tim4_ch2_pwm_pb7>;
 		pinctrl-names = "default";
 	};
 };
