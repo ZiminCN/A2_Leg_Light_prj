@@ -16,31 +16,37 @@
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
 
+uint8_t spi_test_array[] = {
+
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E,
+	0x1E,0x1E,0x1E,0x1E
+};
+
 int main(void)
 {	
-	// HikariSPIControler *hikarispicontroler;
+	HikariSPIControler *spi_def;
 	HikariGPIOConfig *def;
 
 	def->board_led_init();
+	// spi_def->nomal_test_spi_write(spi_test_array);
+	spi_def->nomal_test_spi_write(spi_test_array, sizeof(spi_test_array));
 	while (1)
 	{
 		/* code */
+		spi_def->nomal_test_spi_write(spi_test_array, sizeof(spi_test_array));
 		def->test_led();
-
 	}
-	
-    // uint8_t test_array[] = {
-    //     //seems is start frame
-
-    // };
-	// while (1)
-	// {
-	// 	/* code */
-	// 	printk("**Now test SPI func!** \r\n");
-	// 	hikarispicontroler->nomal_test_spi_write(test_array);
-	// 	// k_msleep(50);
-	// }
-	
-
 	return 0;
 }

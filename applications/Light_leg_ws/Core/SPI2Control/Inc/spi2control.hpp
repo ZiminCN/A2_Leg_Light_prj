@@ -15,7 +15,7 @@ class HikariSPIControler {
         void test();
         uint8_t rgb2spi_array_output(SK6812_SDI_COLOR_STRUCT input_RGBcolor);
         uint8_t rgb2spi_array_output_TEST(uint8_t input_rgbcolor[]);
-        uint8_t nomal_test_spi_write(uint8_t input_rgbcolor[]);
+        uint8_t nomal_test_spi_write(uint8_t input_rgbcolor[], size_t len);
     private:
         static HikariSPIControler _sInstance;
 };

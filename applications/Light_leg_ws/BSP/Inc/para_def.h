@@ -28,8 +28,8 @@
 #define FALSE (0U)
 #define TRUE  (1U)
 
-#define SDI_ONE     (0x07)
-#define SDI_ZERO    (0x01)
+#define SDI_ONE     (0x1E)
+#define SDI_ZERO    (0x00)
 
 #define bit7_check  (0x80)
 #define bit6_check  (0x40)
