@@ -40,11 +40,34 @@
 		};
 	};
 
+	pwmsdi {
+		compatible = "pwm-leds";
+		status = "okay";
+
+		pwm_sdi: pwm_sdi{
+			label = "PWM-AS-SDI";
+			pwms = <&time3pwm2 2 1000 PWM_POLARITY_NORMAL>;
+		};
+	};
+
+	pwmsck {
+		compatible = "pwm-leds";
+		status = "okay";
+
+		pwm_sck: pwm_sck{
+			label = "PWM-AS-SCK";
+			pwms = <&time2pwm4 4 1000 PWM_POLARITY_NORMAL>;
+		};
+	};
+
+
     aliases {
         boardleda = &board_led_a;
         boardledb = &board_led_b;
         boardledc = &board_led_c;
 		watchdog0 = &iwdg;
+		pwmassck = &pwm_sck;
+		pwmassdi = &pwm_sdi;
     };
 };
 
@@ -75,7 +98,7 @@
 };
 
 &spi1 {
-	pinctrl-0 = <&spi1_sck_master_pa5 &spi1_mosi_master_pa7>;
+	pinctrl-0 = <&spi1_sck_master_pa5>;
 	cs-gpios = <&gpioa 4 GPIO_ACTIVE_LOW>;
 	pinctrl-names = "default";
 	status = "okay";
@@ -92,13 +115,24 @@
 	status = "okay";
 };
 
-&timers3 {
-	st,prescaler = <10000>;
+&timers2 {
+	st,prescaler = <1000>;
 	status = "okay";
 
-	time3pwm: pwm {
+	time2pwm4: pwm {
 		status = "okay";
-		pinctrl-0 = <&tim3_ch2_pwm_out_pa7>;
+		pinctrl-0 = <&tim2_ch4_pwm_out_pa3>;
+		pinctrl-names = "default";
+	};
+};
+
+&timers3 {
+	st,prescaler = <1000>;
+	status = "okay";
+
+	time3pwm2: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim3_ch2_pwm_in_pa7>;
 		pinctrl-names = "default";
 	};
 };

@@ -57,7 +57,5 @@ typedef struct{
     uint8_t R_Value;
     uint8_t G_Value;
     uint8_t B_Value;
-}SK6812_SDI_COLOR_STRUCT;
-
-
+}SDI_COLOR_STRUCT;
 #endif //__PARA_DEF_H

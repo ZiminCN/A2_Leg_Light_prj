@@ -62,3 +62,38 @@ void HikariGPIOConfig::board_led_c_on(){
 void HikariGPIOConfig::board_led_c_off(){
     gpio_pin_set_dt(&BOARD_LED_C, 0);
 }
+
+uint8_t HikariGPIOConfig::pwm_init(){
+    
+    bool err = INIT_VALUE_0;
+
+    if(!(err = device_is_ready(PWM_AS_SCK.dev))){
+        printk(">>>PWM_AS_SCK INIT READY FAIL!<<< \r\n");
+        return MY_FUNC_CRASH;
+    }
+
+    if(!(err = device_is_ready(PWM_AS_SDI.dev))){
+        printk(">>>PWM_AS_SDI INIT READY FAIL!<<< \r\n");
+        return MY_FUNC_CRASH;
+    }
+
+    printk("***PWM INIT READY!*** \r\n");
+    return MY_FUNC_OK;
+}
+
+void HikariGPIOConfig::pwm_as_sck_on(){
+
+    pwm_set_dt(&PWM_AS_SCK, PWM_USEC(30), PWM_USEC(15));
+}
+
+void HikariGPIOConfig::pwm_as_sck_off(){
+
+    pwm_set_dt(&PWM_AS_SCK, PWM_USEC(150), PWM_USEC(0));
+}
+
+
+void HikariGPIOConfig::pwm_as_sdi_on(){
+
+    // pwm_set_dt(&PWM_AS_SDI, PWM_USEC(30), PWM_USEC(15));
+    pwm_set_dt(&PWM_AS_SDI, PWM_MSEC(2000), PWM_MSEC(1000));
+}
