@@ -72,10 +72,10 @@ uint8_t HikariGPIOConfig::pwm_init(){
         return MY_FUNC_CRASH;
     }
 
-    if(!(err = device_is_ready(PWM_AS_SDI.dev))){
-        printk(">>>PWM_AS_SDI INIT READY FAIL!<<< \r\n");
-        return MY_FUNC_CRASH;
-    }
+    // if(!(err = device_is_ready(PWM_AS_SDI.dev))){
+    //     printk(">>>PWM_AS_SDI INIT READY FAIL!<<< \r\n");
+    //     return MY_FUNC_CRASH;
+    // }
 
     printk("***PWM INIT READY!*** \r\n");
     return MY_FUNC_OK;
@@ -83,7 +83,7 @@ uint8_t HikariGPIOConfig::pwm_init(){
 
 void HikariGPIOConfig::pwm_as_sck_on(){
 
-    pwm_set_dt(&PWM_AS_SCK, PWM_USEC(30), PWM_USEC(15));
+    pwm_set_dt(&PWM_AS_SCK, PWM_USEC(28.5), PWM_USEC(14.25));
 }
 
 void HikariGPIOConfig::pwm_as_sck_off(){
@@ -95,5 +95,5 @@ void HikariGPIOConfig::pwm_as_sck_off(){
 void HikariGPIOConfig::pwm_as_sdi_on(){
 
     // pwm_set_dt(&PWM_AS_SDI, PWM_USEC(30), PWM_USEC(15));
-    pwm_set_dt(&PWM_AS_SDI, PWM_MSEC(2000), PWM_MSEC(1000));
+    // pwm_set_dt(&PWM_AS_SDI, PWM_MSEC(2000), PWM_MSEC(1000));
 }
