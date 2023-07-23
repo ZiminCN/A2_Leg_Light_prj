@@ -12,9 +12,9 @@ class HikariSPIControler {
     HikariSPIConfig *hikarispiconfig;
     public:
         static HikariSPIControler *GetInstance() { return &_sInstance;}
-        uint8_t rgb2spi_array_output(SDI_COLOR_STRUCT input_RGBcolor);
         uint8_t rgb2spi_array_output_TEST(uint8_t *input_RGBcolor);
-        uint8_t nomal_test_spi_write(uint8_t input_rgbcolor[], size_t len);
+        void test(uint8_t *input_RGBcolor);
+        void new_test(uint8_t *input_RGBcolor);
     private:
         static HikariSPIControler _sInstance;
 };

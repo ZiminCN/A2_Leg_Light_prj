@@ -1,0 +1,42 @@
+menu "diablo-control (/home/zengjianming/zephyrproject/modules/lib/diablo-control)"
+osource "/home/zengjianming/zephyrproject/modules/lib/diablo-control/zephyr/Kconfig"
+config ZEPHYR_DIABLO_CONTROL_MODULE
+	bool
+	default y
+endmenu
+menu "bmi08x-sensor-api (/home/zengjianming/zephyrproject/modules/lib/bmi08x-sensor-api)"
+osource "/home/zengjianming/zephyrproject/modules/lib/bmi08x-sensor-api/zephyr/Kconfig"
+config ZEPHYR_BMI08X_SENSOR_API_MODULE
+	bool
+	default y
+endmenu
+menu "vl53l5cx-sensor-api (/home/zengjianming/zephyrproject/modules/lib/vl53l5cx-sensor-api)"
+osource "/home/zengjianming/zephyrproject/modules/lib/vl53l5cx-sensor-api/zephyr/Kconfig"
+config ZEPHYR_VL53L5CX_SENSOR_API_MODULE
+	bool
+	default y
+endmenu
+menu "microcdr (/home/zengjianming/zephyrproject/modules/lib/microcdr)"
+osource "/home/zengjianming/zephyrproject/modules/lib/microcdr/zephyr/Kconfig"
+config ZEPHYR_MICROCDR_MODULE
+	bool
+	default y
+endmenu
+menu "diablo-control-a2v2 (/home/zengjianming/zephyrproject/modules/lib/sim-webots)"
+osource "/home/zengjianming/zephyrproject/modules/lib/sim-webots/zephyr/Kconfig"
+config ZEPHYR_DIABLO_CONTROL_A2V2_MODULE
+	bool
+	default y
+endmenu
+menu "hal_nxp (/home/zengjianming/zephyrproject/modules/hal/nxp)"
+osource "$(ZEPHYR_HAL_NXP_KCONFIG)"
+config ZEPHYR_HAL_NXP_MODULE
+	bool
+	default y
+endmenu
+menu "microxrcedds-client (/home/zengjianming/zephyrproject/modules/lib/microxrcedds-client)"
+osource "/home/zengjianming/zephyrproject/modules/lib/microxrcedds-client/zephyr/Kconfig"
+config ZEPHYR_MICROXRCEDDS_CLIENT_MODULE
+	bool
+	default y
+endmenu
