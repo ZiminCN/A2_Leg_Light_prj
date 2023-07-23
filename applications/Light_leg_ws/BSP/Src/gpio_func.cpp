@@ -84,7 +84,7 @@ uint8_t HikariGPIOConfig::pwm_init(){
 void HikariGPIOConfig::pwm_as_sck_on(){
 
     // pwm_set_dt(&PWM_AS_SCK, PWM_USEC(28.5), PWM_USEC(14.25));
-    pwm_set_dt(&PWM_AS_SCK, PWM_USEC(200), PWM_USEC(100));
+    pwm_set_dt(&PWM_AS_SCK, PWM_USEC(28.5), PWM_USEC(14.25));
     // pwm_set_dt(&PWM_AS_SCK, PWM_USEC(50), PWM_USEC(25));
 }
 
