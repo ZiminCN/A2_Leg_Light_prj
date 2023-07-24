@@ -121,7 +121,7 @@
 };
 
 &timers2 {
-	st,prescaler = <1>;
+	st,prescaler = <15>;
 	status = "okay";
 
 	time2pwm4: pwm {

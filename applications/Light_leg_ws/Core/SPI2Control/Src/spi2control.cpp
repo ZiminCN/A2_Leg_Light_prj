@@ -107,7 +107,7 @@ void HikariSPIControler::test(uint8_t *input_RGBcolor){
 
 void HikariSPIControler::new_test(uint8_t *input_RGBcolor){
 
-    uint8_t SPI_SDI_COLOR_ARRAY[1024] = {0};  
+    uint8_t SPI_SDI_COLOR_ARRAY[1024] = {0};
 
     for(int i =0; i < 96; i++){
         SPI_SDI_COLOR_ARRAY[i] = input_RGBcolor[i];

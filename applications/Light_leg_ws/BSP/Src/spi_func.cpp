@@ -31,7 +31,7 @@ uint8_t HikariSPIConfig::my_spi_write(const struct device *dev, uint8_t tx_buffe
         // .frequency = 400000,
         .frequency = 400000,
         .operation = SPI_OP_MODE_MASTER | SPI_WORD_SET(8) | \
-                    SPI_MODE_CPOL | SPI_TRANSFER_MSB | \
+                    SPI_MODE_CPOL | SPI_TRANSFER_LSB | \
                     SPI_CS_ACTIVE_HIGH,
         .slave = 1,
         .cs = &my_cs_gpio,
