@@ -28,8 +28,8 @@
 #define FALSE (0U)
 #define TRUE  (1U)
 
-#define SDI_ONE     (0x1E)
-// #define SDI_ONE     (0xFF)
+// #define SDI_ONE     (0x1E)
+#define SDI_ONE     (0xFF)
 #define SDI_ZERO    (0x00)
 
 #define bit7_check  (0x80)
@@ -55,8 +55,19 @@
 
 typedef struct{
     /* data */
-    uint8_t R_Value;
-    uint8_t G_Value;
-    uint8_t B_Value;
-}SDI_COLOR_STRUCT;
+    uint8_t L_Value;    //Lightness Value
+    uint8_t R_Value;    //Red Value
+    uint8_t G_Value;    //Green Value
+    uint8_t B_Value;    //Blue Value
+}SDI_SINGLE_COLOR_STRUCT;
+
+typedef SDI_SINGLE_COLOR_STRUCT SDI_INPUT_ARRAY[30];
+
+typedef enum {
+    FSM_STATE_POWER_ON    = 0x00U,
+    FSM_STATE_POWER_OFF   = 0x01U,
+    FSM_STATE_LOOP        = 0x02U
+    // LIGHT_STATE_FLAG    = 0x00U,
+}__attribute__((packed)) FSM_STATE;
+
 #endif //__PARA_DEF_H

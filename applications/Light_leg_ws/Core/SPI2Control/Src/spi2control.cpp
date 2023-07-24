@@ -105,6 +105,19 @@ void HikariSPIControler::test(uint8_t *input_RGBcolor){
     hikarispiconfig->my_spi_write(spi1, SPI_SDI_COLOR_ARRAY, 1024);
 }
 
+void HikariSPIControler::fsm_state_power_on(){
+    
+    if(!(basic_timer_cnt % 5)){
+        hikarigpioconfig->pwm_as_sck_on();
+        new_test(test_one);
+	    hikarigpioconfig->pwm_as_sck_off();
+    }else{
+        hikarigpioconfig->pwm_as_sck_on();
+        new_test(clear_array);
+	    hikarigpioconfig->pwm_as_sck_off();
+    }
+}
+
 void HikariSPIControler::new_test(uint8_t *input_RGBcolor){
 
     uint8_t SPI_SDI_COLOR_ARRAY[1056] = {0};
@@ -113,6 +126,31 @@ void HikariSPIControler::new_test(uint8_t *input_RGBcolor){
         SPI_SDI_COLOR_ARRAY[i] = input_RGBcolor[i];
     }
 
-    hikarispiconfig->my_spi_init(spi1);
     hikarispiconfig->my_spi_write(spi1, SPI_SDI_COLOR_ARRAY, 1056);
+}
+
+void HikariSPIControler::my_spi_init(FSM_STATE fsm_state){
+
+    hikarispiconfig->my_spi_init(spi1);
+    fsm_state = FSM_STATE_POWER_ON;
+}
+
+void HikariSPIControler::update_light(FSM_STATE fsm_state){
+    switch (fsm_state)
+    {
+        // case FSM_STATE_LOOP:
+        //     /* code */
+
+        //     break;
+        case FSM_STATE_POWER_ON:
+            /* code */
+            fsm_state_power_on();
+            break;
+        // case FSM_STATE_POWER_OFF:
+        //     /* code */
+            
+        //     break;
+        default:
+            break;
+    }
 }

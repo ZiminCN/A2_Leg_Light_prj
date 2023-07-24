@@ -31,12 +31,12 @@ void HikariGPIOConfig::test_led(){
     gpio_pin_set_dt(&BOARD_LED_A, 1);
     gpio_pin_set_dt(&BOARD_LED_B, 1);
     gpio_pin_set_dt(&BOARD_LED_C, 1);
-    k_msleep(1000);
+    // k_msleep(1000);
 
     gpio_pin_set_dt(&BOARD_LED_A, 0);
     gpio_pin_set_dt(&BOARD_LED_B, 0);
     gpio_pin_set_dt(&BOARD_LED_C, 0);
-    k_msleep(1000);
+    // k_msleep(1000);
 }
 
 void HikariGPIOConfig::board_led_a_on(){
@@ -91,11 +91,4 @@ void HikariGPIOConfig::pwm_as_sck_on(){
 void HikariGPIOConfig::pwm_as_sck_off(){
 
     pwm_set_dt(&PWM_AS_SCK, PWM_USEC(28.5), PWM_USEC(0));
-}
-
-
-void HikariGPIOConfig::pwm_as_sdi_on(){
-
-    // pwm_set_dt(&PWM_AS_SDI, PWM_USEC(30), PWM_USEC(15));
-    // pwm_set_dt(&PWM_AS_SDI, PWM_MSEC(2000), PWM_MSEC(1000));
 }

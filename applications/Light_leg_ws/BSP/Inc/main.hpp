@@ -18,5 +18,6 @@
 #include "usart_func.hpp"
 #include "spi2control.hpp"
 #include "gpio_func.hpp"
+#include "default_light_effect.h"
 
 #endif //__MAIN_HPP

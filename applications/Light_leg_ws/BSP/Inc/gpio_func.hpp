@@ -31,9 +31,6 @@ class HikariGPIOConfig {
         uint8_t pwm_init();
         void pwm_as_sck_on();
         void pwm_as_sck_off();
-
-        void pwm_as_sdi_on();
-
         void board_led_a_on();
         void board_led_a_off();
         void board_led_b_on();
