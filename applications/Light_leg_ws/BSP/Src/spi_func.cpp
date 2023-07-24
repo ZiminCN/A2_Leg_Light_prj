@@ -34,7 +34,7 @@ uint8_t HikariSPIConfig::my_spi_write(const struct device *dev, uint8_t tx_buffe
                     SPI_MODE_CPOL | SPI_TRANSFER_LSB | \
                     SPI_CS_ACTIVE_HIGH,
         .slave = 1,
-        .cs = &my_cs_gpio,
+        // .cs = &my_cs_gpio,
     };
 
     const struct spi_buf spi1_buf1 = {

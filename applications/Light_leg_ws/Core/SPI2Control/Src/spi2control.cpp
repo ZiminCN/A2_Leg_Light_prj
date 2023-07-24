@@ -107,12 +107,12 @@ void HikariSPIControler::test(uint8_t *input_RGBcolor){
 
 void HikariSPIControler::new_test(uint8_t *input_RGBcolor){
 
-    uint8_t SPI_SDI_COLOR_ARRAY[1024] = {0};
+    uint8_t SPI_SDI_COLOR_ARRAY[1056] = {0};
 
-    for(int i =0; i < 96; i++){
+    for(int i =0; i < 1056; i++){
         SPI_SDI_COLOR_ARRAY[i] = input_RGBcolor[i];
     }
 
     hikarispiconfig->my_spi_init(spi1);
-    hikarispiconfig->my_spi_write(spi1, SPI_SDI_COLOR_ARRAY, 96);
+    hikarispiconfig->my_spi_write(spi1, SPI_SDI_COLOR_ARRAY, 1056);
 }
