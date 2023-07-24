@@ -39,8 +39,9 @@ int main(void)
 {	
 	HikariSPIControler *spi_def;
 	HikariGPIOConfig *def;
-	k_timer_start(&basic_timer_counter_sys, K_MSEC(10), K_MSEC(20));
+	k_timer_start(&basic_timer_counter_sys, K_MSEC(20), K_MSEC(20));
 
+	def->board_led_init();
 	def->pwm_init();
 	spi_def->my_spi_init(fsm_state);
 
@@ -50,7 +51,7 @@ int main(void)
 
 		spi_def->update_light(fsm_state);
 		// spi_def->rgb2spi_array_output_TEST(spi_test_array);
-		def->test_led();
+		// def->test_led();
 	}
 	return 0;
 }

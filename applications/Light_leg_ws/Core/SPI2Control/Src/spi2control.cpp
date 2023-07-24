@@ -107,15 +107,20 @@ void HikariSPIControler::test(uint8_t *input_RGBcolor){
 
 void HikariSPIControler::fsm_state_power_on(){
     
-    if(!(basic_timer_cnt % 5)){
+    if((basic_timer_cnt <= 15)){
         hikarigpioconfig->pwm_as_sck_on();
         new_test(test_one);
 	    hikarigpioconfig->pwm_as_sck_off();
-    }else{
+    }else if(basic_timer_cnt >= 65){
         hikarigpioconfig->pwm_as_sck_on();
         new_test(clear_array);
 	    hikarigpioconfig->pwm_as_sck_off();
     }
+
+    // if(basic_timer_cnt > 20){
+    //     basic_timer_cnt = 0;
+    // }
+
 }
 
 void HikariSPIControler::new_test(uint8_t *input_RGBcolor){
