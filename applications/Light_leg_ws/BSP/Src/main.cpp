@@ -24,7 +24,7 @@ void basic_timer_counter(struct k_timer *timer){
 	
 	basic_timer_cnt += 1;
 
-	if(basic_timer_cnt > 100){
+	if(basic_timer_cnt > 150){
 		basic_timer_cnt = 0;
 	}
 }
@@ -39,7 +39,7 @@ int main(void)
 {	
 	HikariSPIControler *spi_def;
 	HikariGPIOConfig *def;
-	k_timer_start(&basic_timer_counter_sys, K_MSEC(20), K_MSEC(20));
+	k_timer_start(&basic_timer_counter_sys, K_MSEC(10), K_MSEC(10));
 
 	def->board_led_init();
 	def->pwm_init();

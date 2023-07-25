@@ -53,6 +53,8 @@
 #define INIT_RX_LEN_DEFAULT     (0x00U)
 #define INIT_TX_LEN_DEFAULT     (0x01U)
 
+#define my_array_size (1056)
+
 typedef struct{
     /* data */
     uint8_t L_Value;    //Lightness Value
