@@ -6,7 +6,7 @@
 
 /dts-v1/;
 #include <st/f1/stm32f103Xb.dtsi>
-#include <st/f1/A2_Leg_F103CBT6.dtsi>
+#include "A2_Leg_F103CBT6.dtsi"
 
 / {
     model = "BOARD DIRECTDRIVETECH A2 Leg F103CBT6";
@@ -73,6 +73,7 @@
 		pwmassck = &pwm_sck;
 		pwmassdi = &pwm_sdi;
 		softpwm = &soft_pwm;
+		canport = &can1;
     };
 };
 
@@ -110,14 +111,14 @@
 };
 
 &can1 {
+	status = "okay";
+	bus-speed = <1000000>;
 	pinctrl-0 = <&can_rx_pa11 &can_tx_pa12>;
 	pinctrl-names = "default";
-	bus-speed = <1000000>;
-	sjw = <1>;
-	prop-seg = <0>;
-	phase-seg1 = <4>;
-	phase-seg2 = <2>;
-	status = "okay";
+
+	can-transceiver {
+		max-bitrate = <1000000>;
+	};
 };
 
 &timers2 {
