@@ -15,43 +15,17 @@
 #include "main.hpp"
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/logging/log.h>
 
+LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 #define BASIC_TIME_COUNT_STACK_SIZE 128
-
-//timer
-int basic_timer_cnt = INIT_VALUE_0;
-void basic_timer_counter(struct k_timer *timer){
-	
-	basic_timer_cnt += 1;
-
-	if(basic_timer_cnt > 150){
-		basic_timer_cnt = 0;
-	}
-}
-K_TIMER_DEFINE(basic_timer_counter_sys, basic_timer_counter, NULL);
-//threads
-// static struct k_thread basic_time_count_thread;
-// K_THREAD_STACK_DEFINE(basic_time_count_area, BASIC_TIME_COUNT_STACK_SIZE);
-
-FSM_STATE fsm_state;
 
 int main(void)
 {	
-	HikariSPIControler *spi_def;
-	HikariGPIOConfig *def;
-	k_timer_start(&basic_timer_counter_sys, K_MSEC(10), K_MSEC(10));
 
-	def->board_led_init();
-	def->pwm_init();
-	spi_def->my_spi_init(fsm_state);
+	LOG_INF("Start Leg Board");
 
-	while (1)
-	{
-	// 	/* code */
+	ws2811_test();
 
-		spi_def->update_light(fsm_state);
-		// spi_def->rgb2spi_array_output_TEST(spi_test_array);
-		// def->test_led();
-	}
 	return 0;
 }

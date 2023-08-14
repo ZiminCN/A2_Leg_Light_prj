@@ -9,6 +9,7 @@ toolchain:
 ram: 20
 flash: 128
 supported:
+  - counter
   - dma
   - gpio
   - uart
